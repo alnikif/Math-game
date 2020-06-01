@@ -1,18 +1,20 @@
 
     //create two random words and their result
-    const a= Math.floor(Math.random()*10),
-    b=Math.floor(Math.random(1)*10);
+    const a= Math.floor(Math.random()*10)+1,
+    b=Math.floor(Math.random()*10)+1;
     const operators=['+', '-', '*', '/'];
 
     const operator =operators[Math.floor(Math.random()*operators.length)]
     const buttons=document.querySelectorAll('.btn');
-    console.log(buttons)
+    const resultText=document.querySelector('.result')
     const btnArray=[];
-    let question;
+    const question=document.querySelector('.question');
+
+    let questionText;
     let result;
     
     //fix min-max num
-    operator==='/' || operator==='-'? question=`${Math.max(a,b)} ${operator} ${Math.min(a,b)} =` : question=`${a} ${operator} ${b} =`
+    operator==='/' || operator==='-'? questionText=`${Math.max(a,b)} ${operator} ${Math.min(a,b)} =` : questionText=`${a} ${operator} ${b} =`
         
     //results
    switch (operator){
@@ -27,12 +29,12 @@
    }
 
  
-//Problem
+    //create innerText for buttons
     let innerBtn=[];
     innerBtn.push(result, result+1, result+2, result-1)
-    console.log(innerBtn)
+    
 
-
+    //shufle function
     function shuffle(arr){
         var j, temp;
         for(var i = arr.length - 1; i > 0; i--){
@@ -43,20 +45,14 @@
         }
         return arr;
     }
-shuffle(innerBtn);
+    shuffle(innerBtn);
 
-
+    //add innerHTML for buttons
     for(let i = 0; i<buttons.length; i++){
         buttons[i].innerHTML=innerBtn[i]
     }
-    
-
-       console.log(a, operator, b)
-
-
-
-
-
+    question.innerHTML=questionText;
+       
 
 
 
