@@ -52,7 +52,28 @@
         buttons[i].innerHTML=innerBtn[i]
     }
     question.innerHTML=questionText;
-       
+
+
+
+    const func =function(e){
+        if(e.target.innerText==result){
+            question.innerHTML='Gratuluje!'
+        }else console.log('u')
+    }
+
+
+    buttons.forEach(el=>{
+        el.addEventListener('click', func )
+
+    
+
+        
+            
+
+        
+
+        
+    })
 
 
 
